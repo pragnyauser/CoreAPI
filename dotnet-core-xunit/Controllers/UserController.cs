@@ -29,7 +29,13 @@ namespace dotnet_core_xunit.Controllers
         public IActionResult Get()
         {
             //Testing
-            return Ok(new string[] { "dotnet-core-xunit-example", $"v{GetType().Assembly.GetName().Version.ToString()}", });
+            Dtos.UserDto.User user = new UserDto.User();
+            user.CreateDate = DateTime.Now;
+            user.Email = "pragnyauser@gmail.com";
+            user.FullName = "DemoUser";
+            return Ok(new string[] { user.ToString() });
+
+            //return Ok(new string[] { "dotnet-core-xunit-example", $"v{GetType().Assembly.GetName().Version.ToString()}", });
         }
 
 
